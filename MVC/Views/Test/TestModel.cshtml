@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TestModel>
+
+@{
+    ViewData["Title"] = "TestModel";
+}
+
+<h1>Test sklepu</h1>
+@foreach(var x in Model)
+{
+    <p>@x.TestName</p>
+    <p>@x.TestDesc</p>
+    <p>@x.TestPrice zł</p>
+}
