@@ -15,5 +15,4 @@ namespace lab2.Models
                 new Product { Product_id = 2, Name = "Jabol", Description = "Kwaśny", Category = "Soki", Price = 200 }
             }.AsQueryable<Product>();
     }
-
 }
