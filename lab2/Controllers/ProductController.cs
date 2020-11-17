@@ -14,9 +14,14 @@ namespace lab2.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("List");
         }
 
-        public ViewResult List() => View(productRepository.Products);
-    }
+								//public ViewResult List() => View(productRepository.Products);
+
+								public ViewResult List(string category)
+								{
+												return View(productRepository.Products.Where(x => x.Category == category));
+								}
+				}
 }
