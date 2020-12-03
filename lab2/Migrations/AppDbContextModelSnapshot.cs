@@ -20,7 +20,7 @@ namespace lab2.Migrations
 
             modelBuilder.Entity("lab2.Models.Product", b =>
                 {
-                    b.Property<int>("Product_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -37,7 +37,7 @@ namespace lab2.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Product_id");
+                    b.HasKey("Id");
 
                     b.ToTable("Products");
                 });

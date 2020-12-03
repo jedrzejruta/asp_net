@@ -43,7 +43,16 @@ namespace lab2
 												app.UseEndpoints(routes =>
 												{
 																routes.MapControllerRoute(
-																				name: "default",
+																				name: "Admins",
+																				pattern: "Admin/{action=Index}",
+																				defaults: new
+																				{
+																								controller = "Admin",
+																								action = "Index"
+																				}
+																				);
+																routes.MapControllerRoute(
+																				name: null,
 																				pattern: "{controller=Product}/{action=List}/{id?}");
 																routes.MapControllerRoute(
 																				name: null,

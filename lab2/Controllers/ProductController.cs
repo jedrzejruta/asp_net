@@ -17,11 +17,10 @@ namespace lab2.Controllers
             return View("List");
         }
 
-								//public ViewResult List() => View(productRepository.Products);
-
 								public ViewResult List(string category)
 								{
 												return View(productRepository.Products.Where(x => x.Category == category));
 								}
+								public ViewResult ListAll() => View(productRepository.Products);
 				}
 }

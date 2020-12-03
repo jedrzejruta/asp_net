@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+				<meta name="viewport" content="width=device-width" />
+				<link rel="stylesheet"
+										asp-href-include="~/lib/twitter-bootstrap/css/*.css"
+										asp-href-exclude="**/*-reboot*,**/*-grid*" />
+				<title>@ViewBag.Title</title>
+</head>
+<body class="m-1 p-1">
+				<div class="bg-info p-2">
+								<p>@ViewBag.Title</p>
+				</div>
+				@if (TempData["message"] != null)
+				{
+    <div class="alert alert-success">@TempData["message"]</div>
+				}
+    @RenderBody()
+</body>
+</html>

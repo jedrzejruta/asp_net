@@ -11,8 +11,18 @@ namespace lab2.Models
         public IQueryable<Product> Products =>
             new List<Product>
             {
-                new Product { Product_id = 1, Name = "Pomarańcz", Description = "Smaczny", Category = "Soki", Price = 100 },
-                new Product { Product_id = 2, Name = "Jabol", Description = "Kwaśny", Category = "Soki", Price = 200 }
+                new Product { Id = 1, Name = "Pomarańcz", Description = "Smaczny", Category = "Soki", Price = 100 },
+                new Product { Id = 2, Name = "Jabol", Description = "Kwaśny", Category = "Soki", Price = 200 }
             }.AsQueryable<Product>();
-    }
+
+								public Product DeleteProduct(int iD)
+								{
+												throw new NotImplementedException();
+								}
+
+								public void SaveProduct(Product product)
+								{
+												throw new NotImplementedException();
+								}
+				}
 }
