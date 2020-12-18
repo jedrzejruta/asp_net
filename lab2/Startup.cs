@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication9.Models;
+using lab2.Middleware;
 
 namespace lab2
 {
@@ -37,6 +38,7 @@ namespace lab2
 
 												app.UseDeveloperExceptionPage();
 												app.UseStatusCodePages();
+												app.UseMyMiddleware();
 												app.UseStaticFiles();
 												app.UseRouting();
 
