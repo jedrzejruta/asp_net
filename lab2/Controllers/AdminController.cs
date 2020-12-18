@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace lab2.Controllers
 {
+				[Authorize]
 				public class AdminController : Controller
 				{
 								private readonly IProductRepository repo;

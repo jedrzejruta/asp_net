@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +27,10 @@ namespace lab2
 												services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration["Data:SportsStoreProducts:ConnectionStrings"]));
 												services.AddTransient<IProductRepository, EFProductRepository>();
 												services.AddRazorPages();
+
+												services.AddIdentity<IdentityUser, IdentityRole>()
+																.AddEntityFrameworkStores<AppDbContext>()
+																.AddDefaultTokenProviders();
 								}
 
 								// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +46,9 @@ namespace lab2
 												app.UseMyMiddleware();
 												app.UseStaticFiles();
 												app.UseRouting();
+
+												app.UseAuthentication();
+												app.UseAuthorization();
 
 												app.UseEndpoints(routes =>
 												{
@@ -66,13 +74,6 @@ namespace lab2
 																				});
 												});
 
-												//app.UseEndpoints(endpoints =>
-												//{
-												//				endpoints.MapGet("/", async context =>
-												//				{
-												//								await context.Response.WriteAsync("Hello World!");
-												//				});
-												//});
 												SeedData.EnsurePopulated(app);
 								}
 				}
