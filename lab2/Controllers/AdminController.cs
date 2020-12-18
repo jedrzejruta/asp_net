@@ -13,7 +13,7 @@ namespace lab2.Controllers
 
 								public AdminController(IProductRepository productRepository) => repo = productRepository;
 
-								public ViewResult Index => View(repo.Products);
+								public ViewResult Index() => View(repo.Products);
 
 								public ViewResult Edit(int ID) => View(repo.Products.FirstOrDefault(x => x.Id == ID));
 
@@ -27,6 +27,7 @@ namespace lab2.Controllers
 																return RedirectToAction("Index");
 												}
 												else
+
 												{
 																return View("Edit", product);
 												}
