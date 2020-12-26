@@ -8,7 +8,7 @@ namespace lab2.Models
 {
 				public class IdentidySeedData
 				{
-								private const string login = "Admin"; // use of const instead of readonly? will we change this values later?
+								private const string login = "Admin";
 								private const string password = "Admin123$";
 
 								public static async Task EnsurePopulated(UserManager<IdentityUser> userManager)

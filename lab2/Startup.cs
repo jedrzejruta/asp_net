@@ -1,7 +1,6 @@
 using lab2.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -27,10 +26,13 @@ namespace lab2
 												services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration["Data:SportsStoreProducts:ConnectionStrings"]));
 												services.AddTransient<IProductRepository, EFProductRepository>();
 												services.AddRazorPages();
+												services.AddMvc();
 
 												services.AddIdentity<IdentityUser, IdentityRole>()
 																.AddEntityFrameworkStores<AppDbContext>()
 																.AddDefaultTokenProviders();
+
+												services.AddSwaggerGen();
 								}
 
 								// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,12 @@ namespace lab2
 																app.UseDeveloperExceptionPage();
 												}
 
+												app.UseSwagger();
+												app.UseSwaggerUI(c =>
+												{
+																c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API");
+																c.RoutePrefix = "api";
+												});
 												app.UseDeveloperExceptionPage();
 												app.UseStatusCodePages();
 												app.UseMyMiddleware();
