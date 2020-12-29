@@ -7,6 +7,7 @@ using lab2.Models;
 
 namespace lab2.Controllers
 {
+				//TODO: add [ApiController route parameter if necessary
 				public class ApiController : ControllerBase
 				{
 								private readonly IProductRepository repo;

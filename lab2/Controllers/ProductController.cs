@@ -21,6 +21,11 @@ namespace lab2.Controllers
 								{
 												return View(productRepository.Products.Where(x => x.Category == category));
 								}
+
+        public ViewResult GetById(int id)
+								{
+            return View(productRepository.Products.SingleOrDefault(x => x.Id == id));
+								}
 								public ViewResult ListAll() => View(productRepository.Products);
 				}
 }
