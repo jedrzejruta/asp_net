@@ -1,0 +1,22 @@
+﻿@page "/calculator"
+
+<h3>Calculator</h3>
+
+<input type="number" @bind="num1" />
+<input type="number" @bind="num2" />
+
+
+<button class="btn btn-primary" @onclick="@(e => SumNumbers(num1,num2))">Sum two numbers</button>
+
+<p>Sum of above numbers is: @sum</p>
+
+@code {
+
+				private int num1, num2;
+				private int sum;
+
+				private void SumNumbers(int num1, int num2)
+				{
+								sum = num1 + num2;
+				}
+}
