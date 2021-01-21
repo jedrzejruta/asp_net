@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication9.Models;
 using lab2.Middleware;
+using lab2.Hubs;
 
 namespace lab2
 {
@@ -33,6 +34,7 @@ namespace lab2
 																.AddDefaultTokenProviders();
 
 												services.AddSwaggerGen();
+												services.AddSignalR();
 								}
 
 								// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,12 +76,18 @@ namespace lab2
 																				pattern: "{controller=Product}/{action=List}/{id?}");
 																routes.MapControllerRoute(
 																				name: null,
+																				pattern: "{controller=Product}/{action=ListAll}"
+																				);
+																routes.MapControllerRoute(
+																				name: null,
 																				pattern: "Product/{category}",
 																				defaults: new 
 																				{
 																								controller = "Product",
 																								action = "List" 
 																				});
+																routes.MapHub<ChatHub>("/chathub");
+																routes.MapHub<CounterHub>("/counterhub");
 												});
 
 												SeedData.EnsurePopulated(app);
