@@ -6,7 +6,7 @@
 <input type="number" @bind="num2" />
 
 
-<button class="btn btn-primary" @onclick="@(e => SumNumbers(num1,num2))">Sum two numbers</button>
+<button class="btn btn-primary" @onclick="@(e => SumNumbers())">Sum two numbers</button>
 
 <p>Sum of above numbers is: @sum</p>
 
@@ -15,7 +15,7 @@
 				private int num1, num2;
 				private int sum;
 
-				private void SumNumbers(int num1, int num2)
+				private void SumNumbers()
 				{
 								sum = num1 + num2;
 				}
