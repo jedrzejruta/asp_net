@@ -12,21 +12,21 @@
          role="navigation">
         <a class="navbar-brand" href="#">Sklep sportowy</a>
     </div>
-    <div class="row m-1 p-1 ">
-        <div id="categories" class="col-3">
-@*@await Component.InvokeAsync("NavigationMenu")*@
-            Później umieścimy tu coś użytecznego.
-        </div>
-        <div>
+				<div class="col-7">
+								@await Component.InvokeAsync("NavigationMenu")
+				</div>
+    <div class="m-1 p-1 ">
+        <div class="col">
             <a class="btn btn-primary" asp-action="ListAll" asp-controller="Product">
                 Wszystkie produkty
             </a>
         </div>
-        <div class="col-9">
+        <div class="col-7">
             @RenderBody()
         </div>
     </div>
-				<div class="container">
+    <div class="col">
+				<div class="col-5">
 								<div class="row">
 												<p class="col-2">User</p>
 												<input type="text" id="userInput" />
@@ -47,6 +47,7 @@
     <div class="row">
         <p class="col-2" id="countUsers">Aktualnie na stronie jest połączonych: </p>
     </div>
+        </div>
 </body>
 </html>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
