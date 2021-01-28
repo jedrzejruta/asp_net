@@ -72,19 +72,19 @@ namespace lab2
 																				}
 																				);
 																routes.MapControllerRoute(
-																				name: null,
-																				pattern: "{controller=Product}/{action=List}/{id?}");
-																routes.MapControllerRoute(
-																				name: null,
+																				name: "default",
 																				pattern: "{controller=Product}/{action=ListAll}"
 																				);
 																routes.MapControllerRoute(
 																				name: null,
+																				pattern: "{controller=Product}/{action=List}/{id?}");
+																routes.MapControllerRoute(
+																				name: null,
 																				pattern: "Product/{category}",
-																				defaults: new 
+																				defaults: new
 																				{
 																								controller = "Product",
-																								action = "List" 
+																								action = "List"
 																				});
 																routes.MapHub<ChatHub>("/chathub");
 																routes.MapHub<CounterHub>("/counterhub");
